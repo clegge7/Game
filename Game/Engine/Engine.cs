@@ -94,7 +94,11 @@ namespace Game.Engine
                     }
                     else
                     {
+                        Log.Error("GameLoopThread Unexpected Termination");
                         Application.Exit();
+                        Log.Error("Press any button to exit");
+                        Console.ReadKey();
+                        break;
                     }
                 }
             }
