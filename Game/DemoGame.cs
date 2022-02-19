@@ -11,15 +11,21 @@ namespace Game
     class DemoGame : Engine.Engine
     {
         //Shape2D player;
-        //Sprite2D sprite;
-        string[,] Map =
+        Sprite2D sprite;
+        Map2D map;
+
+        string[,] mapinfo =
         {
-            {".",".",".",".",".","." },
-            {".",".",".",".","g","." },
-            {".",".",".","g","g","." },
-            {".",".","g","g","g","." },
-            {"g","g","g","g","g","g" },
-            {".",".",".",".",".","." }
+            {"pl","pl","pl","pl","pl","pl","pl","pl","pl","pl","pl","fo",".",".","." },
+            {"fo","fo","pl","pl","pl","pl","pl","pl","pl","pl","pl","fo",".",".","." },
+            {"pl","pl","pl","pl","pl","pl","pl","pl","pl","pl","pl","ft",".","ga","." },
+            {"pl","pl","pl","pl","pl","sa","pl","pl","pl","pl","pl","pl","pl","pl","pl" },
+            {"pl","pl","fo","pl","pl","sa","sa","pl","pl","pl","pl","pl","pl","pl", "pl"},
+            {"pl","pl","fo","pl","pl","cl","cl","pl","pl","pl","pl","pl","pl","pl", "pl"},
+            {"pl","pl","pl","pl","pl","pl","pl","pl","ar","pl","pl","pl","pl","pl", "pl"},
+            {"pl","pl","pl","pl","fo","pl","hi","pl","cl","pl","fo","pl","pl","pl", "pl"},
+            {"pl","pl","pl","pl","pl","pl","pl","fo","pl","cl","pl","pl","pl","pl", "pl"},
+            {"pl","pl","pl","pl","fo","pl","pl","pl","fo","pl","fo","pl","pl","pl", "pl"}
         };
         public DemoGame() : base(new Engine.Vector2(615,515), "Game Demo") { }
 
@@ -28,19 +34,8 @@ namespace Game
             BackgroundColor = Color.Black;
 
             //player = new Shape2D(new Vector2(10,10), new Vector2(10,10), "Test");
-            //sprite = new Sprite2D(new Vector2(10, 20), new Vector2(100, 100), "adventurer-attack1-00", "Player");
-
-            //making map
-            //for(int i = 0; i< Map.GetLength(0); i++)
-            //{
-            //    for(int j = 0; j < Map.GetLength(1); j++)
-            //    {
-            //        if(Map[i,j] == "g")
-            //        {
-            //            new Sprite2D(new Vector2(i*100, j*100), new Vector2(20, 20), "adventurer-attack1-00", "Player");
-            //        }
-            //    }
-            //}
+            sprite = new Sprite2D(new Vector2(24, 24), new Vector2(24, 24), "adventurer-attack1-00", "Player");
+            map = new Map2D(new Vector2(240, 160), mapinfo, "test", "test");
         }
         public override void OnDraw()
         {

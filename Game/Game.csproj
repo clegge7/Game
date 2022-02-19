@@ -50,6 +50,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Engine\Log.cs" />
+    <Compile Include="Engine\Map2D.cs" />
     <Compile Include="Engine\Shape2D.cs" />
     <Compile Include="Engine\Sprite2D.cs" />
     <Compile Include="Engine\Vector2.cs" />

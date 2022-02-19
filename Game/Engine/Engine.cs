@@ -24,6 +24,7 @@ namespace Game.Engine
         private Thread GameLoopThread = null;
         private static List<Shape2D> AllShapes = new List<Shape2D>();
         private static List<Sprite2D> AllSprites = new List<Sprite2D>();
+        private static Map2D CurrentMap = new Map2D();
 
         public Color BackgroundColor = Color.Beige;
 
@@ -52,6 +53,10 @@ namespace Game.Engine
         {
             AllSprites.Add(sprite);
         }
+        public static void RegisterMap(Map2D map)
+        {
+            CurrentMap = map;
+        }
 
         public static void UnregisterShape(Shape2D shape)
         {
@@ -70,6 +75,11 @@ namespace Game.Engine
                 Log.Info($"[SPRITE2D]({sprite.Tag}) - Has been destroyed");
             };
 
+        }
+        public static void UnregisterMap(Map2D map)
+        {
+            CurrentMap = null;
+            Log.Info($"[MAP2D]({map.Tag}) - Has been destroyed");
         }
         void GameLoop()
         {
@@ -109,6 +119,7 @@ namespace Game.Engine
             Graphics g = e.Graphics;
 
             g.Clear(BackgroundColor);
+            g.DrawImage(CurrentMap.MapImage,0,0);
 
             foreach(Shape2D shape in AllShapes)
             {
